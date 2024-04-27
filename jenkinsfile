@@ -1,0 +1,67 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Code Checkout") {
+            steps {
+                echo "Cloning the code"
+                git url: "https://github.com/pranayshthakur/node-calci.git", branch: "main"
+                sh "pwd"
+                sh "ls -l"
+            }
+        }
+
+        stage("Setup Environment") {
+            steps {
+                echo "Setting up the environment"
+                sh 'sudo apt-get update'
+                sh 'sudo apt-get install python3 -y'
+                sh 'sudo apt-get install python3-pip -y'
+                sh 'sudo apt-get node install express'
+                sh 'sudo apt-get npm install webdriverio'
+
+                // Install Google Chrome
+                sh '''
+                wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+                echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+                sudo apt-get update
+                sudo apt-get install -y google-chrome-stable
+                '''
+
+                // Install Selenium
+                sh 'pip3 install selenium'
+
+                // Download and install ChromeDriver
+                sh '''
+                sudo rm -rf /usr/local/bin/chromedriver
+                wget https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.122/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
+                unzip chromedriver-linux64.zip
+                mv chromedriver-linux64 chromedriver
+                sudo mv -f chromedriver /usr/local/bin/
+                '''
+            }
+        }
+
+        stage("Selenium Test") {
+            steps {
+                echo "Running Node tests"
+                sh "pwd" // Print current directory for debugging
+                sh "ls -l" // Print directory contents for debugging
+                sh 'node -v' // Confirm node version
+
+                // Run node tests
+                sh "node ./seleniumtestcase.js"
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up temporary files
+            sh 'rm -f chromedriver-linux64.zip'
+        }
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}
