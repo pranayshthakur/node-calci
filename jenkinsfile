@@ -17,8 +17,11 @@ pipeline {
                 sh 'sudo apt-get update'
                 sh 'sudo apt-get install python3 -y'
                 sh 'sudo apt-get install python3-pip -y'
-                sh 'sudo apt-get node install express'
-                sh 'sudo apt-get npm install webdriverio'
+                sh 'sudo apt install -y nodejs npm'
+                sh 'sudo npm install -g express'
+                sh 'npm install express'
+                sh 'npm fund'
+                sh 'npm install webdriverio'
 
                 // Install Google Chrome
                 sh '''
@@ -29,16 +32,17 @@ pipeline {
                 '''
 
                 // Install Selenium
-                sh 'pip3 install selenium'
+                sh 'sudo apt install python3-selenium'
 
                 // Download and install ChromeDriver
-                sh '''
-                sudo rm -rf /usr/local/bin/chromedriver
-                wget https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.122/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
-                unzip chromedriver-linux64.zip
-                mv chromedriver-linux64 chromedriver
-                sudo mv -f chromedriver /usr/local/bin/
-                '''
+               // sh '''
+               // sudo apt-get install unzip
+               // sudo rm -rf /usr/local/bin/chromedriver
+               // wget https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.122/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
+                //unzip chromedriver-linux64.zip
+               // mv chromedriver-linux64 chromedriver
+               // sudo mv -f chromedriver /usr/local/bin/
+               // '''
             }
         }
 
