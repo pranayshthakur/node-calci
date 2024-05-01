@@ -16,7 +16,7 @@ pipeline {
                 echo "Setting up the environment"
                 sh 'sudo apt-get update'
                 sh 'sudo apt-get install python3 -y'
-                sh 'sudo apt-get install python3-pip -y'
+                //sh 'sudo apt-get install python3-pip -y'
                 sh 'sudo apt install -y nodejs npm'
                 sh 'sudo npm install -g express'
                 sh 'npm install express'
