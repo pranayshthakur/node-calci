@@ -1,11 +1,15 @@
 const assert = require('assert');
 const { remote } = require('webdriverio');
+const puppeteer = require('puppeteer');
 
 (async () => {
   const browser = await remote({
     logLevel: 'trace', // For detailed logs
     capabilities: {
       browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: ['--headless', '--no-sandbox', '--disable-gpu'], // Headless option with extra safety arguments
+      },
     },
   });
 
