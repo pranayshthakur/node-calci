@@ -7,15 +7,13 @@ const puppeteer = require('puppeteer');
     logLevel: 'trace', // For detailed logs
     capabilities: {
       browserName: 'chrome',
-      'goog:chromeOptions': {
-        args: ['--headless', '--no-sandbox', '--disable-gpu'], // Headless option with extra safety arguments
-      },
+
     },
   });
 
   try {
     // Navigate to the calculator application
-    await browser.url('http://18.234.113.39:3000');
+    await browser.url('http://3.85.10.5:3000');
     await browser.pause(5000); // Wait for the page to load
     console.log("Navigation step completed successfully.");
 
@@ -34,10 +32,10 @@ const puppeteer = require('puppeteer');
           break;
         }
       }
-    }, '+'); // Select addition operator 
+    }, '+'); // Select addition operator
 
     await browser.execute(() => {
-      document.querySelector('button[type="submit"]').click();  // Simulate click
+      document.querySelector('button[type="submit"]').click(); // Simulate click
     });
     console.log("Addition operation step completed successfully.");
 
@@ -48,7 +46,7 @@ const puppeteer = require('puppeteer');
       return document.querySelector('#result').textContent; // Get the result text
     });
 
-    assert.strictEqual(resultText, 'Result: 8', 'Addition test failed');  // Validate the result
+    assert.strictEqual(resultText, 'Result: 8', 'Addition test failed'); // Validate the result
     console.log("Addition result validated successfully.");
 
     // Perform subtraction: 5 - 3 = 2
@@ -69,7 +67,7 @@ const puppeteer = require('puppeteer');
     }, '-'); // Select subtraction operator
 
     await browser.execute(() => {
-      document.querySelector('button[type="submit"]').click();  // Simulate click
+      document.querySelector('button[type="submit"]').click(); // Simulate click
     });
     console.log("Subtraction operation step completed successfully.");
 
@@ -80,7 +78,7 @@ const puppeteer = require('puppeteer');
       return document.querySelector('#result').textContent; // Get the result text
     });
 
-    assert.strictEqual(resultText, 'Result: 2', 'Subtraction test failed');  // Validate the result
+    assert.strictEqual(resultText, 'Result: 2', 'Subtraction test failed'); // Validate the result
     console.log("Subtraction result validated successfully.");
 
     // Perform multiplication: 5 * 3 = 15
@@ -101,7 +99,7 @@ const puppeteer = require('puppeteer');
     }, '*'); // Select multiplication operator
 
     await browser.execute(() => {
-      document.querySelector('button[type="submit"]').click();  // Simulate click
+      document.querySelector('button[type="submit"]').click(); // Simulate click
     });
     console.log("Multiplication operation step completed successfully.");
 
@@ -112,7 +110,7 @@ const puppeteer = require('puppeteer');
       return document.querySelector('#result').textContent; // Get the result text
     });
 
-    assert.strictEqual(resultText, 'Result: 15', 'Multiplication test failed');  // Validate the result
+    assert.strictEqual(resultText, 'Result: 15', 'Multiplication test failed'); // Validate the result
     console.log("Multiplication result validated successfully.");
 
     // Perform division: 6 / 3 = 2
@@ -133,7 +131,7 @@ const puppeteer = require('puppeteer');
     }, '/'); // Select division operator
 
     await browser.execute(() => {
-      document.querySelector('button[type="submit"]').click();  // Simulate click
+      document.querySelector('button[type="submit"]').click(); // Simulate click
     });
     console.log("Division operation step completed successfully.");
 
@@ -141,12 +139,11 @@ const puppeteer = require('puppeteer');
 
     // Validate the division result
     resultText = await browser.execute(() => {
-      return document.querySelector('#result').textContent;  // Get the result text
+      return document.querySelector('#result').textContent; // Get the result text
     });
 
-    assert.strictEqual(resultText, 'Result: 2', 'Division test failed');  // Validate the division result
+    assert.strictEqual(resultText, 'Result: 2', 'Division test failed'); // Validate the division result
     console.log("Division result validated successfully.");
-
   } catch (error) {
     console.error("Error during automation test:", error); // Handle exceptions
   } finally {
