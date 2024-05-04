@@ -1,0 +1,6 @@
+---
+- name: Deploy Docker Containers to Kubernetes
+  hosts: localhost
+  tasks:
+    - name: Apply Kubernetes Deployment
+      command: kubectl apply -f /path/to/deployment.yaml
