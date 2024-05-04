@@ -7,13 +7,16 @@ const puppeteer = require('puppeteer');
     logLevel: 'trace', // For detailed logs
     capabilities: {
       browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: ['--headless', '--no-sandbox', '--disable-gpu'], // Headless option with extra safety arguments
+      },
 
     },
   });
 
   try {
     // Navigate to the calculator application
-    await browser.url('http://3.85.10.5:3000');
+    await browser.url('http://localhost:3000');
     await browser.pause(5000); // Wait for the page to load
     console.log("Navigation step completed successfully.");
 
