@@ -8,15 +8,16 @@ const puppeteer = require('puppeteer');
     capabilities: {
       browserName: 'chrome',
       'goog:chromeOptions': {
-        args: ['--headless', '--no-sandbox', '--disable-gpu','--disable-dev-shm-usage'], // Headless option with extra safety arguments
-      },
+        binary: '/usr/bin/google-chrome-stable', // Specify the Chrome binary location
+        args: ['--headless', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage'] // Example arguments for headless execution
+      }
 
     },
   });
 
   try {
     // Navigate to the calculator application
-    await browser.url('http://18.232.147.223:3000');
+    await browser.url('http://100.27.214.135:3000');
     await browser.pause(5000); // Wait for the page to load
     console.log("Navigation step completed successfully.");
 
