@@ -31,3 +31,4 @@ sudo mv chromedriver /usr/bin/
 sudo chown root:root /usr/bin/chromedriver
 sudo chmod +x /usr/bin/chromedriver
 
+google-chrome
