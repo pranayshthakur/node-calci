@@ -21,7 +21,6 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 sudo apt update
 sudo apt install google-chrome-stable -y
 
-google-chrome
 
 # Example: For Chrome 123.x, use the corresponding ChromeDriver
 wget https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.122/linux64/chromedriver-linux64.zip
