@@ -2,7 +2,6 @@ sudo apt update
 sudo apt install maven -y
 sudo apt install python3
 sudo apt-get install unzip
-sudo apt install python3-pip
 sudo apt install -y nodejs npm
 sudo npm install -g express
 sudo npm install express
