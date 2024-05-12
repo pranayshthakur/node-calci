@@ -57,3 +57,5 @@ add it into authorized_key in same directory in next line
 similar can be done if using two different server 
 now do ansible servers -m ping
 it will pong
+learn shell for ansible
+ansible -i inventory.yml all -m "shell" -a "touch sell1.yml"
