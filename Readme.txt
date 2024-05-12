@@ -60,3 +60,8 @@ it will pong
 learn shell for ansible
 ansible -i inventory.yml all -m "shell" -a "touch sell1.yml"
 ansible-playbook provision-minikube.yml
+usermod -aG docker $USER
+newgrp docker
+become false in ansible or use become user command
+and add that user to administratin access
+like sudo usermod -aG sudo $USER
