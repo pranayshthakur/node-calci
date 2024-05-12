@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
 
   try {
     // Navigate to the calculator application
-    await browser.url('http://52.90.221.201:3000');
+    await browser.url('http://54.209.198.11:3000');
     await browser.pause(5000); // Wait for the page to load
     console.log("Navigation step completed successfully.");
 
