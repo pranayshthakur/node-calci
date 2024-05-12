@@ -59,3 +59,4 @@ now do ansible servers -m ping
 it will pong
 learn shell for ansible
 ansible -i inventory.yml all -m "shell" -a "touch sell1.yml"
+ansible-playbook provision-minikube.yml
