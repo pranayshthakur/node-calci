@@ -25,7 +25,7 @@ sudo apt install google-chrome-stable -y
 wget https://storage.googleapis.com/chrome-for-testing-public/123.0.6312.122/linux64/chromedriver-linux64.zip
 unzip chromedriver-linux64.zip
 sudo mv chromedriver-linux64 chromedriver
-sudo cd chromedriver
+cd chromedriver
 sudo mv chromedriver /usr/bin/
 
 sudo chown root:root /usr/bin/chromedriver
