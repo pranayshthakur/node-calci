@@ -32,3 +32,28 @@ sudo chown root:root /usr/bin/chromedriver
 sudo chmod +x /usr/bin/chromedriver
 
 google-chrome
+
+dockerfile config
+sudo chmod 666 /var/run/docker.sock
+sudo docker build -t nodecalci .  (inside project directory)
+sudo docker run -d -p 5000:3000 nodecalci
+
+
+Anisble setup
+sudo apt update
+sudo apt install ansible -y
+as it will not generate ansible directory inside /etc
+sudo mkdir -p /etc/ansible
+sudo touch /etc/ansible/hosts
+sudo nano /etc/ansible/hosts
+[servers]
+54.209.198.11
+ansible servers -m ping
+it will not do ping pong
+then go to cd .ssh
+sudo ssh-keygen
+then add open new id_edXXXX.pub file copy its whole line and
+add it into authorized_key in same directory in next line
+similar can be done if using two different server 
+now do ansible servers -m ping
+it will pong

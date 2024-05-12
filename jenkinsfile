@@ -6,15 +6,6 @@ pipeline {
         git url: 'https://github.com/pranayshthakur/node-calci.git', branch: 'main'
       }
     }
-    stage('Run Node Programs in Parallel') {
-      parallel {
-        stage('Run Program 1') {
-          steps {
-            script {
-              sh 'node app.js' // Adjust this path
-            }
-          }
-        }
         stage('Run Program 2') {
           steps {
             script {
@@ -24,5 +15,3 @@ pipeline {
         }
       }
     }
-  }
-}
