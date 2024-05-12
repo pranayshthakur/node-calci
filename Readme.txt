@@ -36,7 +36,7 @@ google-chrome
 dockerfile config
 sudo chmod 666 /var/run/docker.sock
 sudo docker build -t nodecalci .  (inside project directory)
-sudo docker run -d -p 5000:3000 nodecalci
+sudo docker run -d -p 5000:3000 nodecalci(as app is using 3000)
 
 
 Anisble setup
@@ -53,7 +53,7 @@ it will not do ping pong
 then go to cd .ssh
 sudo ssh-keygen
 then add open new id_edXXXX.pub file copy its whole line and
-add it into authorized_key in same directory in next line
+add it into authorized_key in same directory of destination server in next line
 similar can be done if using two different server 
 now do ansible servers -m ping
 it will pong
